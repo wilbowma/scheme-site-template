@@ -31,6 +31,7 @@ MKDIR=/usr/bin/mkdir
 RSYNC=/usr/bin/rsync
 RM=/bin/rm
 TAR=/usr/bin/tar
+CP=/usr/bin/cp
 
 TARFLAGS=-J
 TARBALL=scheme-site-template.tar.xz
