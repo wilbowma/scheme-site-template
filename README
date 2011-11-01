@@ -1,0 +1,50 @@
+* Motivation *
+
+The cleverly named 'Scheme site template' is a scheme library which
+provides a small template for building websites. 
+
+Scheme is naturally good at tree manipulation, (HTML is a tree), has
+built in support for quoted and quasi-quoted lists/trees, which means
+built in support for templating of trees. Better yet, it's functional,
+which means higher order templating. 
+
+So, why not use it to generate your HTML? Instead of opening and closing
+HTML tags, you open parens and type the SXML (S-Expression XML) tag. Of
+course, you're using a real text editor so it closed the parens for you.
+You can perform manipulations over your HTML, generate lists, create
+functions to generate long HTML blocks. It's just a much better
+environment for writing your website.
+
+* Installation * 
+
+Simply ensure wjb/scheme-site-template.sls is in your library path. You
+can do this by placing is in e.g. ~/lib, and using the --libdirs command
+line flag:
+
+> cp -r wjb/ ~/lib/
+> scheme --libdirs ~/lib/
+
+You can also add it via the environment variable CHEZSCHEMELIBDIRS:
+
+> export CHEZSCHEMELIBDIRS=.:~/lib/
+
+* How to use *
+
+High level overview: 
+
+Well, import the library. It has a massive list of exported parameters.
+Each is a function, which when called, returns a piece of the SXML tree.
+It's designed to be quite modular, so hopefully the default will work a
+lot of the time, and if not, you can set new values. 
+
+If you don't like the default, you can set up your own defaults to be
+used in almost all your webpages. After setting up the default, just
+import the file where the default are defined, and then override
+whatever elements change (generally, the body and the title). Then you
+run the compile function on the SXML tree.
+
+For the details, see the example files/projects.
+
+* Feedback *
+
+Drop me an email. It's posted somewhere on my site.

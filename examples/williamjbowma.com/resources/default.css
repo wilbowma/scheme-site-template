@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+body {
+  font: 13px/20px FreeSans,Helvetica,Arial,sans-serif;
+  vertical-align: baseline;
+  position: relative;
+  text-align: center;
+  margin:0 auto;
+}
+
+.code {
+  font: 13px/20px Inconsolata,Consolas,Courier,monospace;
+}
+
+#top {
+  width: 786px;
+  margin: 4em auto;
+  text-align: left;
+}
+
+section {
+  margin-bottom: 3em;
+  padding-left: 2em;
+  padding-right: 1em;
+}
+
+#nav-menu {
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#header {
+  text-align: center;
+  background-color: #fff;
+}
+
+#id {
+  margin: auto;
+}
+
+.name {
+  padding-top: 10px;
+  line-height: 1.5em;
+  font-size: 2em;
+  font-weight: bold;
+  /*text-transform: small-caps;*/
+  margin-bottom: 0px;
+}
+
+#menu {
+  background-color: #eee;
+  border: 1px dashed #999;
+  list-style-type: none;
+  float: left;
+  padding: 1em;
+}
+
+p {
+  text-indent:1em;
+}
+
+a { 
+  font-style: italic;
+  text-decoration: underline;
+  color: #000000;
+}
+
+a.menu-link {
+  text-decoration: none;
+}
+
+a.menu-link:before {
+  content: "λk.(k ";
+}
+
+a.menu-link:after {
+  content: ")";
+}
+
+#content {
+  padding-left: 12em;
+  min-height: 10em;
+  width: auto -2em;
+  padding-top: 1em;
+}
+
+.csemail:after { content:'@indiana.edu' }
+
+#copyright {
+  float: left;
+}
+
+#arvixe {
+  float: right;
+}
+
+#validation {
+  margin-left: 14em;
+  text-align: center;
+}
+
+#footer { 
+  border: 1pt solid;
+  background-color: #ccc;
+  text-align: justify;
+  font-size: 9pt;
+}
+
