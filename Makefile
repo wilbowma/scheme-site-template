@@ -27,18 +27,19 @@
 # LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 MKDIR=/usr/bin/mkdir
 RSYNC=/usr/bin/rsync
 RM=/bin/rm
 TAR=/usr/bin/tar
 CP=/usr/bin/cp
 
-TARFLAGS=-J
+TARFLAGS=-J -C dist/
 TARBALL=scheme-site-template.tar.xz
 TARFOLDER=scheme-site-template
 
 RSYNCFLAGS=-a
-RSYNCFILES=wjb/ examples/
+RSYNCFILES=wjb/ examples/ Makefile README
 RSYNCEXCLUDES=--exclude=".git" --exclude="*~" --exclude="cv.html"
 
 
@@ -50,10 +51,9 @@ INSTALLDIR=~/lib/scheme
 all : install
 
 tar : 
-	$(MKDIR) $(TARFOLDER)
-	$(RSYNC) $(RSYNCFLAGS) $(RSYNCFILES) $(RSYNCEXCLUDES) $(TARFOLDER)
+	$(MKDIR) -p dist/scheme-site-template
+	$(RSYNC) $(RSYNCFLAGS) $(RSYNCFILES) $(RSYNCEXCLUDES) $(TARFOLDER) 
 	$(TAR) $(TARFLAGS) -cf $(TARBALL) $(TARFOLDER)
-	$(RM) -rf $(TARFOLDER)
 
 install : 
 	$(MKDIR) -p $(INSTALLDIR)/wjb

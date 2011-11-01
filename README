@@ -17,8 +17,13 @@ environment for writing your website.
 
 * Installation * 
 
-Simply ensure wjb/scheme-site-template.sls is in your library path. You
-can do this by placing is in e.g. ~/lib, and using the --libdirs command
+Just run:
+> make install
+or
+> INSTALLDIR=~/lib/scheme make install
+
+Then simply ensure wjb/scheme-site-template.sls is in your library path.
+You can do this by placing is in e.g. ~/lib, and using the --libdirs command
 line flag:
 
 > cp -r wjb/ ~/lib/
