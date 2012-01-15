@@ -28,18 +28,20 @@
 # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-MKDIR=/usr/bin/mkdir
+MKDIR=/bin/mkdir
 RSYNC=/usr/bin/rsync
 RM=/bin/rm
-TAR=/usr/bin/tar
-CP=/usr/bin/cp
+TAR=/bin/tar
+CP=/bin/cp
 
-TARFLAGS=-J -C dist/
+DIST=dist/
+
+TARFLAGS=-J -C $(DIST)
 TARBALL=scheme-site-template.tar.xz
 TARFOLDER=scheme-site-template
 
 RSYNCFLAGS=-a
-RSYNCFILES=wjb/ examples/ Makefile README
+RSYNCFILES=wjb examples Makefile README
 RSYNCEXCLUDES=--exclude=".git" --exclude="*~" --exclude="cv.html"
 
 
@@ -52,14 +54,15 @@ all : install
 
 tar : 
 	$(MKDIR) -p dist/scheme-site-template
-	$(RSYNC) $(RSYNCFLAGS) $(RSYNCFILES) $(RSYNCEXCLUDES) $(TARFOLDER) 
+	$(RSYNC) $(RSYNCFLAGS) $(RSYNCFILES) $(RSYNCEXCLUDES) $(DIST)$(TARFOLDER) 
 	$(TAR) $(TARFLAGS) -cf $(TARBALL) $(TARFOLDER)
 
 install : 
 	$(MKDIR) -p $(INSTALLDIR)/wjb
 	$(CP) -r wjb $(INSTALLDIR)
-	@echo "The library has been install to $(INSTALLDIR)"
+	@echo "The library has been installed to $(INSTALLDIR)"
 	@echo
+	@echo "Assuming you use Chez Scheme:"
 	@echo "Either specify --libdir $(INSTALLDIR) for your project, or add \
 the following"
 	@echo "line to your .bashrc:"

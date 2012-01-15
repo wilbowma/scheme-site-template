@@ -50,6 +50,11 @@ run the compile function on the SXML tree.
 
 For the details, see the example files/projects.
 
+* Note *
+
+This library is subject to change as I refine the design. It was
+originally hacked together rather quickly as I played with SXML.
+
 * Feedback *
 
 Drop me an email. It's posted somewhere on my site.
